@@ -1,7 +1,8 @@
-package com.sun.moviedb_48;
+package com.sun.moviedb_48.screen.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.sun.moviedb_48.R;
 
 public class MainActivity extends AppCompatActivity {
 
