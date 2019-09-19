@@ -1,14 +1,15 @@
 package com.sun.moviedb_48.data.source;
 
 import com.sun.moviedb_48.data.model.Movie;
+import com.sun.moviedb_48.data.source.remote.OnFetchDataJsonListener;
 import com.sun.moviedb_48.utils.Categories;
 
 public interface MoviesDataSource {
-    public interface RemoteDataSource {
-        void getMovieByCategories(Categories categories,OnFetchDataJsonListener<Movie> listener);
+    public interface Remote {
+        void getMovieByCategories(Categories category, OnFetchDataJsonListener<Movie> listener);
     }
 
-    public interface LocalDataSource {
+    public interface Local {
 
     }
 }

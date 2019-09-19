@@ -1,4 +1,4 @@
-package com.sun.moviedb_48.data.source;
+package com.sun.moviedb_48.data.source.remote;
 
 import java.util.ArrayList;
 
