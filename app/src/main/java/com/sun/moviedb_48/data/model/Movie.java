@@ -7,12 +7,19 @@ public class Movie {
     private String mTitle;
     private String mPosterPathUrl;
     private String mBackDropPathUrl;
-    private float mVoteAverage;
+    private double mVoteAverage;
     private String mOverView;
     private int mReleaseYear;
     private ArrayList<Genre> mGenres;
 
-    public Movie() {
+    private Movie(MovieBuilder movieBuilder) {
+        mId = movieBuilder.mId;
+        mTitle = movieBuilder.mTitle;
+        mPosterPathUrl = movieBuilder.mPosterPathUrl;
+        mBackDropPathUrl = movieBuilder.mBackDropPathUrl;
+        mVoteAverage = movieBuilder.mVoteAverage;
+        mOverView = movieBuilder.mOverView;
+        mReleaseYear = movieBuilder.mReleaseYear;
     }
 
     public int getId() {
@@ -47,11 +54,11 @@ public class Movie {
         mBackDropPathUrl = backDropPathUrl;
     }
 
-    public float getVoteAverage() {
+    public double getVoteAverage() {
         return mVoteAverage;
     }
 
-    public void setVoteAverage(float voteAverage) {
+    public void setVoteAverage(double voteAverage) {
         mVoteAverage = voteAverage;
     }
 
@@ -79,13 +86,78 @@ public class Movie {
         mGenres = genres;
     }
 
+    public static class MovieBuilder {
+        private int mId;
+        private String mTitle;
+        private String mPosterPathUrl;
+        private String mBackDropPathUrl;
+        private double mVoteAverage;
+        private String mOverView;
+        private int mReleaseYear;
+
+        public MovieBuilder(int id, String title, String posterPathUrl, String backDropPathUrl,
+                double voteAverage, String overView, int releaseYear) {
+            mId = id;
+            mTitle = title;
+            mPosterPathUrl = posterPathUrl;
+            mBackDropPathUrl = backDropPathUrl;
+            mVoteAverage = voteAverage;
+            mOverView = overView;
+            mReleaseYear = releaseYear;
+        }
+
+        public MovieBuilder() { }
+
+        public MovieBuilder id(int id) {
+            mId = id;
+            return this;
+        }
+
+        public MovieBuilder title(String title) {
+            mTitle = title;
+            return this;
+        }
+
+        public MovieBuilder posterPathUrl(String posterPathUrl) {
+            mPosterPathUrl = posterPathUrl;
+            return this;
+        }
+
+        public MovieBuilder backDropPathUrl(String backDropPathUrl) {
+            mBackDropPathUrl = backDropPathUrl;
+            return this;
+        }
+
+        public MovieBuilder voteAverage(double voteAverage) {
+            mVoteAverage = voteAverage;
+            return this;
+        }
+
+        public MovieBuilder overView(String overView) {
+            mOverView = overView;
+            return this;
+        }
+
+        public MovieBuilder releaseYear(int releaseYear) {
+            mReleaseYear = releaseYear;
+            return this;
+        }
+
+        public Movie build() {
+            return new Movie(this);
+        }
+    }
+
     public final class MovieEntry {
-        public static final String MOVIE = "results";
+        public static final String RESULT = "results";
+        public static final String ID = "id";
         public static final String TITLE = "title";
-        public static final String VOTE = "vote_average";
+        public static final String VOTE_AVERAGE = "vote_average";
         public static final String POSTER_PATH = "poster_path";
         public static final String BACKDROP_PATH = "poster_path";
         public static final String RELEASE_DATE = "release_date";
         public static final String OVERVIEW = "overview";
+        public static final int BEGIN_POSITION_YEAR = 0;
+        public static final int END_POSITION_YEAR = 3;
     }
 }

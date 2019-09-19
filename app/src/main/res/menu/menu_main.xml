@@ -9,7 +9,7 @@
     <item
         android:id="@+id/itemGenres"
         android:icon="@drawable/ic_menu_opaque_24dp"
-        android:title="@string/genres"
+        android:title="@string/categories"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/itemSearch"
