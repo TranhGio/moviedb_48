@@ -18,7 +18,8 @@ public class MovieRemoteDataSource implements MoviesDataSource.Remote {
     }
 
     @Override
-    public void getMovieByCategories(Categories category, OnFetchDataJsonListener<Movie> listener) {
+    public void getMovieByCategories(@Categories String category,
+            OnFetchDataJsonListener<Movie> listener) {
         String url = Constant.BASE_API_URL
                 + Constant.MOVIE
                 + category

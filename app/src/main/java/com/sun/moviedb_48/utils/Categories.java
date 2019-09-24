@@ -17,6 +17,6 @@ public @interface Categories {
     String UPCOMING_TITLE = "Upcoming";
     String POPULAR = "popular";
     String POPULAR_TITLE = "Popular";
-    String TOPRATED = "top_rate";
+    String TOPRATED = "top_rated";
     String TOPRATED_TITLE = "Top Rated";
 }

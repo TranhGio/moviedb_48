@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.itemHome:
                 Navigator.loadFragment(getSupportFragmentManager(), R.id.frameLayoutMain,
-                        HomeFragment.newInstance(), false, HomeFragment.class.getSimpleName());
+                        HomeFragment.getInstance(), false, HomeFragment.class.getSimpleName());
                 return true;
             case R.id.itemGenres:
                 Navigator.loadFragment(getSupportFragmentManager(), R.id.frameLayoutMain,

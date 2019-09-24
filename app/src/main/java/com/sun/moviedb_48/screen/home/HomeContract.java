@@ -13,6 +13,6 @@ public interface HomeContract {
     }
 
     interface Presenter extends BasePresenter<View> {
-        void getMoviesByCategories(Categories category);
+        void getMoviesByCategories(@Categories String cate);
     }
 }

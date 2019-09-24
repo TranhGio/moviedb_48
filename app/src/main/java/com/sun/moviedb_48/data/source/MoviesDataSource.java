@@ -6,7 +6,8 @@ import com.sun.moviedb_48.utils.Categories;
 
 public interface MoviesDataSource {
     public interface Remote {
-        void getMovieByCategories(Categories category, OnFetchDataJsonListener<Movie> listener);
+        void getMovieByCategories(@Categories String category,
+                OnFetchDataJsonListener<Movie> listener);
     }
 
     public interface Local {

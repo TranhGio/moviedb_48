@@ -25,7 +25,7 @@ public class MovieRepository {
         return sInstance;
     }
 
-    public void getMovieByCategories(Categories category, OnFetchDataJsonListener<Movie> listener) {
+    public void getMovieByCategories(@Categories String category, OnFetchDataJsonListener<Movie> listener) {
         mRemote.getMovieByCategories(category, listener);
     }
 }

@@ -31,7 +31,7 @@ public class GetMoviesByCategoriesAsyncTask extends AsyncTask<String, Void, Arra
     @Override
     protected void onPostExecute(ArrayList<Movie> movies) {
         super.onPostExecute(movies);
-        if (mException != null) {
+        if (movies == null || mException != null) {
             mListener.onError(mException);
         } else {
             mListener.onSuccess(movies);

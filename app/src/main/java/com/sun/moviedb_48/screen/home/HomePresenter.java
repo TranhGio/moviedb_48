@@ -1,5 +1,6 @@
 package com.sun.moviedb_48.screen.home;
 
+import android.util.Log;
 import com.sun.moviedb_48.data.model.Movie;
 import com.sun.moviedb_48.data.repository.MovieRepository;
 import com.sun.moviedb_48.data.source.remote.OnFetchDataJsonListener;
@@ -16,7 +17,7 @@ public class HomePresenter implements HomeContract.Presenter {
     }
 
     @Override
-    public void getMoviesByCategories(Categories category) {
+    public void getMoviesByCategories(@Categories String category) {
         mMovieRepository.getMovieByCategories(category, new OnFetchDataJsonListener<Movie>() {
             @Override
             public void onSuccess(ArrayList<Movie> data) {
