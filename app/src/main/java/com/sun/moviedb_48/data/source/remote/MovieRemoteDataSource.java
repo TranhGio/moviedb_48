@@ -1,10 +1,12 @@
 package com.sun.moviedb_48.data.source.remote;
 
 import com.sun.moviedb_48.data.model.Movie;
+import com.sun.moviedb_48.data.model.Person;
 import com.sun.moviedb_48.data.source.MoviesDataSource;
 import com.sun.moviedb_48.data.source.remote.fetchdata.GetMoviesByCategoriesAsyncTask;
 import com.sun.moviedb_48.utils.Categories;
 import com.sun.moviedb_48.utils.Constant;
+import com.sun.moviedb_48.utils.PersonType;
 
 public class MovieRemoteDataSource implements MoviesDataSource.Remote {
 
@@ -18,7 +20,8 @@ public class MovieRemoteDataSource implements MoviesDataSource.Remote {
     }
 
     @Override
-    public void getMovieByCategories(Categories category, OnFetchDataJsonListener<Movie> listener) {
+    public void getMovieByCategories(@Categories String category,
+            OnFetchDataJsonListener<Movie> listener) {
         String url = Constant.BASE_API_URL
                 + Constant.MOVIE
                 + category
