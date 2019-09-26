@@ -9,7 +9,7 @@ public class Movie {
     private String mBackDropPathUrl;
     private double mVoteAverage;
     private String mOverView;
-    private int mReleaseYear;
+    private String mReleaseDate;
     private ArrayList<Genre> mGenres;
 
     private Movie(MovieBuilder movieBuilder) {
@@ -19,7 +19,7 @@ public class Movie {
         mBackDropPathUrl = movieBuilder.mBackDropPathUrl;
         mVoteAverage = movieBuilder.mVoteAverage;
         mOverView = movieBuilder.mOverView;
-        mReleaseYear = movieBuilder.mReleaseYear;
+        mReleaseDate = movieBuilder.mReleaseYear;
     }
 
     public int getId() {
@@ -70,12 +70,12 @@ public class Movie {
         mOverView = overView;
     }
 
-    public int getReleaseYear() {
-        return mReleaseYear;
+    public String getReleaseDate() {
+        return mReleaseDate;
     }
 
-    public void setReleaseYear(int releaseYear) {
-        mReleaseYear = releaseYear;
+    public void setReleaseDate(String releaseDate) {
+        mReleaseDate = releaseDate;
     }
 
     public ArrayList<Genre> getGenres() {
@@ -93,10 +93,10 @@ public class Movie {
         private String mBackDropPathUrl;
         private double mVoteAverage;
         private String mOverView;
-        private int mReleaseYear;
+        private String mReleaseYear;
 
         public MovieBuilder(int id, String title, String posterPathUrl, String backDropPathUrl,
-                double voteAverage, String overView, int releaseYear) {
+                double voteAverage, String overView, String releaseYear) {
             mId = id;
             mTitle = title;
             mPosterPathUrl = posterPathUrl;
@@ -139,7 +139,7 @@ public class Movie {
             return this;
         }
 
-        public MovieBuilder releaseYear(int releaseYear) {
+        public MovieBuilder releaseYear(String releaseYear) {
             mReleaseYear = releaseYear;
             return this;
         }
@@ -155,10 +155,8 @@ public class Movie {
         public static final String TITLE = "title";
         public static final String VOTE_AVERAGE = "vote_average";
         public static final String POSTER_PATH = "poster_path";
-        public static final String BACKDROP_PATH = "poster_path";
+        public static final String BACKDROP_PATH = "backdrop_path";
         public static final String RELEASE_DATE = "release_date";
         public static final String OVERVIEW = "overview";
-        public static final int BEGIN_POSITION_YEAR = 0;
-        public static final int END_POSITION_YEAR = 3;
     }
 }

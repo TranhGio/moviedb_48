@@ -59,10 +59,7 @@ public class ParseUrlToJson {
                     .backDropPathUrl(jsonObjectMovie.getString(Movie.MovieEntry.BACKDROP_PATH))
                     .voteAverage(jsonObjectMovie.getDouble(Movie.MovieEntry.VOTE_AVERAGE))
                     .overView(jsonObjectMovie.getString(Movie.MovieEntry.OVERVIEW))
-                    .releaseYear(Integer.parseInt(
-                            jsonObjectMovie.getString(Movie.MovieEntry.RELEASE_DATE)
-                                    .substring(Movie.MovieEntry.BEGIN_POSITION_YEAR,
-                                            Movie.MovieEntry.END_POSITION_YEAR)))
+                    .releaseYear(jsonObjectMovie.getString(Movie.MovieEntry.RELEASE_DATE))
                     .build();
         } catch (JSONException e) {
             e.printStackTrace();

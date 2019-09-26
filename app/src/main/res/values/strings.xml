@@ -4,4 +4,6 @@
     <string name="categories">Categories</string>
     <string name="search">Search</string>
     <string name="favourite">Favourite</string>
+    <string name="msg_fail_image_loading">Load image fail</string>
+    <string name="mgs_fail_load_movie_by_categories">Load movie fail</string>
 </resources>
