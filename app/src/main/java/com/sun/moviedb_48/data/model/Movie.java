@@ -106,7 +106,8 @@ public class Movie {
             mReleaseYear = releaseYear;
         }
 
-        public MovieBuilder() { }
+        public MovieBuilder() {
+        }
 
         public MovieBuilder id(int id) {
             mId = id;

@@ -1,7 +1,9 @@
 package com.sun.moviedb_48.data.source.remote.fetchdata;
 
 import com.sun.moviedb_48.data.model.Movie;
+import com.sun.moviedb_48.data.model.Person;
 import com.sun.moviedb_48.utils.Constant;
+import com.sun.moviedb_48.utils.PersonType;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -66,5 +68,39 @@ public class ParseUrlToJson {
             e.printStackTrace();
         }
         return movie;
+    }
+
+    public ArrayList<Person> getListPersonFromJson(String jsonString,
+            @PersonType String personType) {
+        ArrayList<Person> people = new ArrayList<>();
+        try {
+            JSONObject jsonObject = new JSONObject(jsonString);
+            if (personType.equals(PersonType.CREW)) {
+                JSONArray jsonArray = jsonObject.getJSONArray(Person.PersonEntry.CREW);
+                if (jsonArray.length() != 0) {
+                    Person person = parsePersonFromJson(jsonArray.getJSONObject(0));
+                    if (person != null) {
+                        people.add(person);
+                    }
+                }
+            } else {
+                //TODO Cast
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return people;
+    }
+
+    private Person parsePersonFromJson(JSONObject jsonObjectPerson) throws JSONException {
+        Person person = null;
+        if (jsonObjectPerson != null) {
+            person = new Person.PersonBuilder().personId(jsonObjectPerson.getInt(
+                    String.valueOf(jsonObjectPerson.getInt(Person.PersonEntry.ID))))
+                    .personName(jsonObjectPerson.getString(Person.PersonEntry.NAME))
+                    .personImage(jsonObjectPerson.getString(Person.PersonEntry.PROFILE_PATH))
+                    .build();
+        }
+        return person;
     }
 }

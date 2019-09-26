@@ -10,14 +10,12 @@ public class MovieRepository {
     private MoviesDataSource.Remote mRemote;
     private MoviesDataSource.Local mLocal;
 
-    private MovieRepository(MoviesDataSource.Remote remote,
-            MoviesDataSource.Local local) {
+    private MovieRepository(MoviesDataSource.Remote remote, MoviesDataSource.Local local) {
         mRemote = remote;
         mLocal = local;
     }
 
-    public static MovieRepository getInstance(
-            MoviesDataSource.Remote remote,
+    public static MovieRepository getInstance(MoviesDataSource.Remote remote,
             MoviesDataSource.Local local) {
         if (sInstance == null) {
             sInstance = new MovieRepository(remote, local);
@@ -25,7 +23,8 @@ public class MovieRepository {
         return sInstance;
     }
 
-    public void getMovieByCategories(Categories category, OnFetchDataJsonListener<Movie> listener) {
+    public void getMovieByCategories(@Categories String category,
+            OnFetchDataJsonListener<Movie> listener) {
         mRemote.getMovieByCategories(category, listener);
     }
 }
